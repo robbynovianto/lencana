@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Toko Online</title>
-    <link rel="shortcut icon" href="{{ asset('images/basket.png') }}" type="image/x-icon" />
+    <title>R-Dua Lencana | Jual Lencana</title>
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon" />
     <!-- CSS only -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -43,8 +43,8 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item">
+        <a class="nav-link" href="/">Beranda <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
             <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup=“true" aria-expanded="false"> Kategori
@@ -57,7 +57,7 @@
         </li>    
     <li class="ml-2">
     <form class="navbar-nav mr-auto" action="{{ route('frontend.search.index') }}">
-      <input class="form-control mr-sm-2" style="width: 250px" type="text" name="q" placeholder="Cari disini..." aria-label="Search">
+      <input class="form-control mr-sm-2" type="text" name="q" placeholder="Cari disini..." aria-label="Search">
       <button class="btn text-dark border my-2 my-sm-0" type="submit">Cari</button>
     </form>
     </li>
@@ -97,12 +97,8 @@
   
 </nav>
 
-
-
-
-
     @if (Auth::guard('customer')->check() && request()->segment(1) == "customer")
-    <div class="jumbotron rounded-0" style="background-color: #566479;padding-bottom:8rem">
+    <div class="jumbotron rounded-0" style="background-color: #4889e5; padding-bottom:8rem">
         <div class="container">
         </div>
     </div>
@@ -125,6 +121,43 @@
             toastr[param['type']](param['message']);
             toastr.options.preventDuplicates = true;
         });
+
+
+        document.addEventListener("DOMContentLoaded", function(){
+        // make it as accordion for smaller screens
+        if (window.innerWidth > 992) {
+
+            document.querySelectorAll('.navbar .nav-item').forEach(function(everyitem){
+
+                everyitem.addEventListener('mouseover', function(e){
+
+                    let el_link = this.querySelector('a[data-bs-toggle]');
+
+                    if(el_link != null){
+                        let nextEl = el_link.nextElementSibling;
+                        el_link.classList.add('show');
+                        nextEl.classList.add('show');
+                    }
+
+                });
+                everyitem.addEventListener('mouseleave', function(e){
+                    let el_link = this.querySelector('a[data-bs-toggle]');
+
+                    if(el_link != null){
+                        let nextEl = el_link.nextElementSibling;
+                        el_link.classList.remove('show');
+                        nextEl.classList.remove('show');
+                    }
+
+
+                })
+            });
+
+        }
+        // end if innerWidth
+        }); 
+        // DOMContentLoaded  end
+
     </script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <div class="mb-5">
     <div class="container-fluid" style="margin-top: 80px;">
 
-            <div class="jumbotron rounded-lg shadow" style="background-color: #566479;">
+            <div class="jumbotron rounded-lg shadow" style="background-color: #4f97fe;">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="card border-0 shadow rounded-full">
@@ -42,9 +42,9 @@
                         </div>
                         @endif
 
-                        <div class="price font-weight-bold mt-3" style="color: #47b04b;font-size:20px">
+                        <div class="price font-weight-bold mt-3" style="color: black;font-size:20px">
                             {{ money_id($harga_diskon) }}</div>
-                        <button wire:click="addToCart({{ $product->id }})" class="btn btn-success btn-md mt-3 btn-block shadow-md">Beli</button>
+                        <button wire:click="addToCart({{ $product->id }})" class="btn btn-primary btn-md mt-3 btn-block shadow-md">Beli</button>
                     </div>
                 </div>
             </div>
@@ -57,3 +57,40 @@
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+// make it as accordion for smaller screens
+if (window.innerWidth > 992) {
+
+	document.querySelectorAll('.navbar .nav-item').forEach(function(everyitem){
+
+		everyitem.addEventListener('mouseover', function(e){
+
+			let el_link = this.querySelector('a[data-bs-toggle]');
+
+			if(el_link != null){
+				let nextEl = el_link.nextElementSibling;
+				el_link.classList.add('show');
+				nextEl.classList.add('show');
+			}
+
+		});
+		everyitem.addEventListener('mouseleave', function(e){
+			let el_link = this.querySelector('a[data-bs-toggle]');
+
+			if(el_link != null){
+				let nextEl = el_link.nextElementSibling;
+				el_link.classList.remove('show');
+				nextEl.classList.remove('show');
+			}
+
+
+		})
+	});
+
+}
+// end if innerWidth
+}); 
+// DOMContentLoaded  end
+</script>

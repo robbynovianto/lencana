@@ -2,8 +2,8 @@
     .list-group-item.active {
         z-index: 2;
         color: #fff;
-        background-color: #171d26;
-        border-color: #171d26;
+        background-color: #4889e5;
+        border-color: #4889e5;
     }
 </style>
 <div class="list-group">
