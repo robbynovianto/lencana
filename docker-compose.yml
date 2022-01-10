@@ -1,0 +1,81 @@
+version: '3.7'
+
+services:
+  #Laravel App
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: lencana-apps
+    container_name: app
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - mynet
+
+  #Nginx Service
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "5555:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www/html
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - mynet
+
+  # PHMyAdmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: project_phpmyadmin
+    ports:
+      - 8182:80
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: rootpasswordmysql
+    restart: always
+    depends_on:
+      - db
+    networks:
+      - mynet
+
+  #MySQL Service
+  db:
+    image: mysql:5.7
+    container_name: db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: rootpasswordmysql
+    command: --init-file /data/application/init.sql
+    volumes:
+      - ./docker/mysql:/var/lib/mysql
+      - ./db_lencana.sql:/data/application/init.sql
+    networks:
+      - mynet
+
+#Docker Networks
+networks:
+  mynet:
+    driver: bridge
+#Volumes
+volumes:
+  mysqldata:
+    driver: local
