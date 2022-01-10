@@ -29,6 +29,66 @@
         body {
             font-family: 'Arial', sans-serif;
         }
+
+        *{
+    margin: 0;
+    padding: 0;
+    color: #d9d9d9;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+footer{
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+    background: #111;
+}
+
+.main-content{
+    display: flex; 
+}
+
+.main-content .box{
+    flex-basis: 50%;
+    padding: 10px 20px;
+}
+
+.box h2{
+    font-size:1.125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.box content{
+    margin: 20px 0 0 0;
+}
+
+.left .content .social{
+    padding: 20px 0 0 0;
+}
+
+.left .content p{
+    text-align: justify;
+}
+
+.left .content .social a{
+    padding: 0 2px;
+}
+
+.left .content .social a span{
+    height: 40px;
+    width: 40px;
+    background: #1a1a1a;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.left .content .social a span:hover{
+    background: #f12020;
+}
     </style>
 </head>
 
@@ -162,7 +222,6 @@
 
     </script>
 </body>
-
 <footer>
     <div class="main-content">
         <div class="left box">
@@ -212,9 +271,6 @@
                 </form>
             </div>
         </div>
-
 </div>
-
-    <div class="center box"></div>
 </footer>
 </html>
