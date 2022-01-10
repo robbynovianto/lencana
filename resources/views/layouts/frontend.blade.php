@@ -169,12 +169,11 @@
         <div class="left box">
             <h2>About us</h2>
             <div class="content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis autem enim voluptates nesciunt error quae nobis, 
-                    culpa, neque expedita, quisquam sequi. Ut delectus, quasi similique assumenda minus voluptatum eaque consectetur.</p>
+                <p>R-Dua Store merupakan tempat beli Lencana. Beli sekarang!</p>
             <div class="social">    
-                <a href="#"><span class="fab fa-facebook-f"></span></a>
-                <a href="#"><span class="fab fa-twitter"></span></a>
-                <a href="#"><span class="fab fa-instagram"></span></a>
+                <a href="http://facebook.com/robbynoviantoo"><span class="fab fa-facebook-f"></span></a>
+                <a href="http://twitter.com/robbynoviantoo"><span class="fab fa-twitter"></span></a>
+                <a href="http://instagram.com/robbynovianto_"><span class="fab fa-instagram"></span></a>
             </div>
             </div>  
         </div>
