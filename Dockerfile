@@ -4,6 +4,16 @@ COPY composer.lock composer.json /var/www/html/
 
 WORKDIR /var/www/html
 
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    zip \
+    unzip
+
 RUN docker-php-ext-install pdo pdo_mysql
 RUN docker-php-ext-enable pdo_mysql
 
