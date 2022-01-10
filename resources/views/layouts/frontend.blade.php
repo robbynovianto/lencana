@@ -17,6 +17,7 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <link href="https://raw.githack.com/ttskch/select2-bootstrap4-theme/master/dist/select2-bootstrap4.css" rel="stylesheet" />    
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="css/footer.css">
     <livewire:styles />
     <livewire:scripts />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -29,6 +30,7 @@
         body {
             font-family: 'Arial', sans-serif;
         }
+
     </style>
 </head>
 
@@ -110,6 +112,8 @@
 
     </div>
 
+
+
     <script>
         @if(session()->has('success'))
             toastr.success('{{ session('success') }}')
@@ -160,4 +164,55 @@
 
     </script>
 </body>
+<footer>
+    <div class="main-content">
+        <div class="left box">
+            <h2>About us</h2>
+            <div class="content">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis autem enim voluptates nesciunt error quae nobis, 
+                    culpa, neque expedita, quisquam sequi. Ut delectus, quasi similique assumenda minus voluptatum eaque consectetur.</p>
+            <div class="social">    
+                <a href="#"><span class="fab fa-facebook-f"></span></a>
+                <a href="#"><span class="fab fa-twitter"></span></a>
+                <a href="#"><span class="fab fa-instagram"></span></a>
+            </div>
+            </div>  
+        </div>
+        <div class="center box">
+            <h2>Address</h2>
+            <div class="content">
+                <div class="place">
+                    <span class="fas fa-map-marker-alt"></span>
+                    <span class="text">Ds. Ledok Demaan RT3/5 no 885, Kudus</span>
+                </div>
+                <div class="phone">
+                    <span class="fas fa-phone-alt"></span>
+                    <span class="text">+6287730799869</span>
+                </div>
+                <div class="email">
+                    <span class="fas fa-envelope"></span>
+                    <span class="text">abc@example.com</span>
+                </div>
+            </div>
+        </div>
+        <div class="right box">
+            <h2>Contact us</h2>
+            <div class="content">
+                <form action="#">
+                    <div class="email">
+                        <div class="text">Email *</div>
+                        <input type="email" required>
+                    </div>
+                    <div class="msg">
+                        <div class="text">Message *</div>
+                        <textarea cols="25" rows="2" required></textarea>
+                    </div>
+                    <div class="btn1">
+                        <button type="submit">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+</div>
+</footer>
 </html>
