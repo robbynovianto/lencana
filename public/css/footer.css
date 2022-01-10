@@ -1,3 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+footer{
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+    background: #111;
+}
+
+footer .content{
+    color: #d9d9d9;
+}
+
+footer h2{
+    color: #d9d9d9;
+}
+
+.main-content{
+    display: flex; 
+}
+
 .main-content .box{
     flex-basis: 50%;
     padding: 10px 20px;
@@ -15,6 +43,10 @@
 
 .left .content .social{
     padding: 20px 0 0 0;
+}
+
+.left .content .social .fab{
+    color: white;
 }
 
 .left .content p{
@@ -36,5 +68,80 @@
     transition: 0.3s;
 }
 .left .content .social a span:hover{
-    background: #f12020;
+    background: #4889e5;
+}
+
+.center .content .fas{
+    font-size: 1.4375rem;
+    background: #1a1a1a;
+    height: 45px;
+    width: 45px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 50%;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.center .content .fas:hover{
+    background: #4889e5;
+}
+
+.center .content .text{
+    font-size: 1.0625rem;
+    font-weight: 500;
+    padding-left: 10px;
+}
+
+.center .content .phone{
+    margin: 10px 0;
+}
+
+.right form .text{
+    font-size: 1.0625rem;
+    margin-bottom: 2px;
+    color: white;
+}
+
+.right form .msg{
+    margin-top: 10px;
+}
+
+.right form input, .right form textarea{
+    width: 100%;
+    font-size: 1.0625rem;
+    background: #FAFAFA;
+    padding-left: 10px;
+    border: 1px solid #222222;
+}
+
+.right form input:focus,
+.right form textarea:focus{
+    outline-color: white ;
+}
+
+.right form input{
+    height: 35px;
+}
+
+.right form .btn1{
+    margin-top: 10px;
+}
+
+.right form .btn1 button{
+    color: white;
+    height: 40px;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: #4889e5;
+    font-size: 1.0625rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.right form .btn1 button:hover{
+    background: #2f71da;
+        
 }

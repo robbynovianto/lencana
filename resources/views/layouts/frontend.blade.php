@@ -17,6 +17,7 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <link href="https://raw.githack.com/ttskch/select2-bootstrap4-theme/master/dist/select2-bootstrap4.css" rel="stylesheet" />    
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="css/footer.css">
     <livewire:styles />
     <livewire:scripts />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -30,65 +31,6 @@
             font-family: 'Arial', sans-serif;
         }
 
-        *{
-    margin: 0;
-    padding: 0;
-    color: #d9d9d9;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-footer{
-    position: relative;
-    bottom: 0px;
-    width: 100%;
-    background: #111;
-}
-
-.main-content{
-    display: flex; 
-}
-
-.main-content .box{
-    flex-basis: 50%;
-    padding: 10px 20px;
-}
-
-.box h2{
-    font-size:1.125rem;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-.box content{
-    margin: 20px 0 0 0;
-}
-
-.left .content .social{
-    padding: 20px 0 0 0;
-}
-
-.left .content p{
-    text-align: justify;
-}
-
-.left .content .social a{
-    padding: 0 2px;
-}
-
-.left .content .social a span{
-    height: 40px;
-    width: 40px;
-    background: #1a1a1a;
-    line-height: 40px;
-    text-align: center;
-    font-size: 18px;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-.left .content .social a span:hover{
-    background: #f12020;
-}
     </style>
 </head>
 
@@ -265,7 +207,7 @@ footer{
                         <div class="text">Message *</div>
                         <textarea cols="25" rows="2" required></textarea>
                     </div>
-                    <div class="btn">
+                    <div class="btn1">
                         <button type="submit">Send</button>
                     </div>
                 </form>
