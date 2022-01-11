@@ -213,5 +213,11 @@
             </div>
         </div>
 </div>
+<div class="bottom">
+    <center>
+        <span class="credit">Created By Robby N | </span>
+        <span class="far fa-copyright"></span><span>2022 All rights reserved.</span>
+    </center>
+</div>
 </footer>
 </html>

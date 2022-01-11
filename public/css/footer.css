@@ -39,8 +39,27 @@ footer h2{
     text-transform: uppercase;
 }
 
-.box content{
+.box .content{
     margin: 20px 0 0 0;
+    position: relative;
+}
+
+.box .content:before{
+    position: absolute;
+    content: '';
+    top: -10px;
+    height: 2px;
+    width: 100%;
+    background: #fafafa;
+}
+
+.box .content:after{
+    position: absolute;
+    content: '';
+    height: 2px;
+    width: 15%;
+    background: #4889e5;
+    top: -10px;
 }
 
 .left .content .social{
@@ -150,4 +169,27 @@ footer h2{
 .right form .btn1 button:hover{
     background: #2f71da;
         
+}
+
+.bottom center{
+    padding: 5px;
+    font-size: 0.9375rem;
+}
+
+.bottom .center span{
+    color: #656566;
+}
+
+@media screen and (max-width: 900px) {
+    footer{
+        position: relative;
+        bottom: 0px;
+    }
+    .main-content{
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+    .main-content .box{
+        margin: 5px 0;
+    }
 }
