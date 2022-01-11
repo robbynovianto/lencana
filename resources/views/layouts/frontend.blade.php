@@ -190,7 +190,7 @@
                 </div>
                 <div class="email">
                     <span class="fas fa-envelope"></span>
-                    <span class="text">abc@example.com</span>
+                    <span class="text">robbyprogaming1@gmail.com</span>
                 </div>
             </div>
         </div>
