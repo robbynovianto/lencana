@@ -64,7 +64,7 @@ services:
       MYSQL_USER: ${DB_USERNAME}
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_ROOT_PASSWORD: rootpasswordmysql
-    command: --init-file /data/application/init.sql
+#    command: --init-file /data/application/init.sql
     volumes:
       - ./docker/mysql:/var/lib/mysql
       - ./db_lencana.sql:/data/application/init.sql
