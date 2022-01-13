@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -90,7 +91,7 @@ Route::group(['middleware' => 'guest'], function(){
 Route::prefix('console')->group(function () {
 
     Route::group(['middleware' => 'auth'], function(){
-    
+
         //console dashboard
         Route::livewire('/dashboard', 'console.dashboard.index')
         ->layout('layouts.console')->name('console.dashboard.index');
@@ -103,7 +104,7 @@ Route::prefix('console')->group(function () {
         ->layout('layouts.console')->name('console.categories.create');
 
         Route::livewire('/categories/edit/{id}', 'console.categories.edit')
-        ->layout('layouts.console')->name('console.categories.edit'); 
+        ->layout('layouts.console')->name('console.categories.edit');
 
         //console products
         Route::livewire('/products', 'console.products.index')
@@ -162,3 +163,6 @@ Route::prefix('console')->group(function () {
     });
 
 });
+
+
+

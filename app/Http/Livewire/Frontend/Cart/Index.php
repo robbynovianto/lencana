@@ -5,6 +5,8 @@ namespace App\Http\Livewire\Frontend\Cart;
 use App\Facades\Cart;
 use Livewire\Component;
 
+use function PHPSTORM_META\map;
+
 class Index extends Component
 {
     /**
@@ -18,10 +20,11 @@ class Index extends Component
     public function mount()
     {
         $this->cart = Cart::get();
-        
+
         //if cart empty
         if(count(Cart::get()['products']) == 0) {
-            return redirect()->route('root');
+            // return redirect()->route('root');
+            // return 'hahah';
         }
     }
 

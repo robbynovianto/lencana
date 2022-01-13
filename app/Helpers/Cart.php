@@ -15,6 +15,15 @@ class Cart
     public function add(Product $product): void
     {
         $cart = $this->get();
+
+        // Cek di Cart udah ada barang yang sama
+        $alreadyCart = array_search($product->id, array_column($cart['products'], 'id'));
+
+        if(is_numeric($alreadyCart)){   // Kalau false berarti gk ada
+            // GAK TAU CARA GANTI VALUE
+            $cart['products'][$alreadyCart]['unit_weight'] + 1;
+        }
+
         array_push($cart['products'], $product);
         $this->set($cart);
     }
