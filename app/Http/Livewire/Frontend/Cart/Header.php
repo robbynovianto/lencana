@@ -7,7 +7,6 @@ use Livewire\Component;
 
 class Header extends Component
 {
-
     /**
      * public variable
      */
@@ -38,7 +37,7 @@ class Header extends Component
             $totalPrice += $harga_diskon;
 
         }
-        
+
         $this->cartTotalPrice = $totalPrice;
 
         //if cart empty
@@ -53,7 +52,7 @@ class Header extends Component
     public function mount()
     {
         $this->cartTotal = count(Cart::get()['products']);
-        
+        // dd("Test");
         $totalPrice = 0;
         foreach(Cart::get()['products'] as $value)
         {
@@ -63,7 +62,7 @@ class Header extends Component
             $totalPrice += $harga_diskon;
 
         }
-        
+
         $this->cartTotalPrice = $totalPrice;
 
     }
