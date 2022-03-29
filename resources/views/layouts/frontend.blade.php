@@ -164,60 +164,7 @@
 
     </script>
 </body>
-<footer>
-    <div class="main-content">
-        <div class="left box">
-            <h2>About us</h2>
-            <div class="content">
-                <p>R-Dua Store merupakan tempat beli Lencana. Beli sekarang!</p>
-            <div class="social">    
-                <a href="http://facebook.com/robbynoviantoo"><span class="fab fa-facebook-f"></span></a>
-                <a href="http://twitter.com/robbynoviantoo"><span class="fab fa-twitter"></span></a>
-                <a href="http://instagram.com/robbynovianto_"><span class="fab fa-instagram"></span></a>
-            </div>
-            </div>  
-        </div>
-        <div class="center box">
-            <h2>Address</h2>
-            <div class="content">
-                <div class="place">
-                    <span class="fas fa-map-marker-alt"></span>
-                    <span class="text">Ds. Ledok Demaan RT3/5 no 885, Kudus</span>
-                </div>
-                <div class="phone">
-                    <span class="fas fa-phone-alt"></span>
-                    <span class="text">+6287730799869</span>
-                </div>
-                <div class="email">
-                    <span class="fas fa-envelope"></span>
-                    <span class="text">robbyprogaming1@gmail.com</span>
-                </div>
-            </div>
-        </div>
-        <div class="right box">
-            <h2>Contact us</h2>
-            <div class="content">
-                <form action="#">
-                    <div class="email">
-                        <div class="text">Email *</div>
-                        <input type="email" required>
-                    </div>
-                    <div class="msg">
-                        <div class="text">Message *</div>
-                        <textarea cols="25" rows="2" required></textarea>
-                    </div>
-                    <div class="btn1">
-                        <button type="submit">Send</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-</div>
-<div class="bottom">
-    <center>
-        <span class="credit">Created By Robby N | </span>
-        <span class="far fa-copyright"></span><span>2022 All rights reserved.</span>
-    </center>
-</div>
+
+<script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="{{config('services.midtrans.clientKey')}}"></script>
 </footer>
 </html>

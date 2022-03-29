@@ -5,7 +5,7 @@
             <div class="col-md-6 mb-4">
                 <div class="card border-0 shadow rounded-md">
                     <div class="card-body">
-                        <h5><i class="fa fa-shopping-cart"></i> DETAIL PESENAN</h5>
+                        <h5><i class="fa fa-shopping-cart"></i> DETAIL PESANAN</h5>
                         <hr>
                         @php
                         $totalPrice = 0;
@@ -40,7 +40,10 @@
                                                 <td style="padding: .20rem">QTY</td>
                                                 <td style="padding: .20rem">:</td>
                                                 <td style="padding: .20rem"><b>{{ $product->unit_weight }}
-                                                        {{ $product->unit }}</b></td>
+                                                    <!-- button tambah kurang -->
+
+                                                
+                                                    {{ $product->unit }}</b></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -208,6 +211,10 @@
         </div>
     </div>
 </div>
+
+
+
+
 <script>
     $(document).ready(function () {
         $(".select-provinsi , .select-kota, .select-kecamatan").select2({

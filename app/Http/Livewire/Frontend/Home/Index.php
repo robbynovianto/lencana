@@ -22,6 +22,18 @@ class Index extends Component
      */
     public function addToCart(int $productId)
     {
+        $cart = session()->get('cart', []);
+        $totalCart = count($cart['products']);
+        for($a=0;$a < $totalCart;$a++){
+            $cekCart[] = $cart['products'][$a]['id'];
+
+            // dd($cekCart);
+
+            if($cekCart[$a] == $productId){
+                $cart[$productId]['unit_weight']++;
+            }
+        }
+
         Cart::add(Product::where('id', $productId)->first());
         $this->emit('addToCart');
         //alert message
