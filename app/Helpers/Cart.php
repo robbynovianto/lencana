@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Helpers;
+use Illuminate\Support\Arr;
+
 
 use App\Product;
 
@@ -15,17 +17,16 @@ class Cart
     public function add(Product $product): void
     {
         $cart = $this->get();
-
-        // Cek di Cart udah ada barang yang sama
+        // Cek di Cart udah ada barang yang sama maka ganti unit_weight
         $alreadyCart = array_search($product->id, array_column($cart['products'], 'id'));
+        if(is_numeric($alreadyCart)){ 
+            
 
-        if(is_numeric($alreadyCart)){   // Kalau false berarti gk ada
-            // GAK TAU CARA GANTI VALUE
-            $cart['products'][$alreadyCart]['unit_weight'] + 1;
+
+        }else{
+            array_push($cart['products'], $product);
+            $this->set($cart);
         }
-
-        array_push($cart['products'], $product);
-        $this->set($cart);
     }
 
     public function remove(int $productId): void
