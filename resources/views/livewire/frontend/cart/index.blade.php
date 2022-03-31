@@ -18,7 +18,7 @@
 
                                 @php
                                 $harga_set = $product->price * $product->discount / 100;
-                                $harga_diskon = $product->price - $harga_set;
+                                $harga_diskon = $product->price * $product->unit_weight - $harga_set;
                                 @endphp
 
                                 <tr style="background: #edf2f7;">

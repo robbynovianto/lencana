@@ -19,9 +19,11 @@ class Cart
         $cart = $this->get();
         // Cek di Cart udah ada barang yang sama maka ganti unit_weight
         $alreadyCart = array_search($product->id, array_column($cart['products'], 'id'));
+        dd($cart);
         if(is_numeric($alreadyCart)){ 
             
-
+            dd($cart);
+            $cart['products'][$alreadyCart]['unit_weight']++;
 
         }else{
             array_push($cart['products'], $product);
