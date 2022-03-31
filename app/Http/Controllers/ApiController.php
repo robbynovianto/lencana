@@ -139,6 +139,7 @@ class ApiController extends Controller
         //insert product order
         foreach (Cart::get()['products'] as $cart) {
 
+            $harga_awal = $value->price;
             $harga_set = $cart->price * $cart->discount / 100;
             $harga_diskon = $cart->price - $harga_set;
 

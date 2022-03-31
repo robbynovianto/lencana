@@ -14,16 +14,27 @@ class Cart
             $this->set($this->empty());
     }
 
+    public function search_product($carts, $productId)
+    {
+        foreach ($carts['products'] as $index => $cart){
+            if($cart->id == $productId){
+                return $cart;
+            }
+        }
+        
+        return false;
+    }
+
     public function add(Product $product): void
     {
         $cart = $this->get();
         // Cek di Cart udah ada barang yang sama maka ganti unit_weight
-        $alreadyCart = array_search($product->id, array_column($cart['products'], 'id'));
-        dd($cart);
-        if(is_numeric($alreadyCart)){ 
+        // $alreadyCart = array_search($product->id, array_column($cart['products'], 'id'));
+        $alreadyCart = $this->search_product($cart, $product->id);
+        // dd($cart);
+        if($alreadyCart){ 
             
-            dd($cart);
-            $cart['products'][$alreadyCart]['unit_weight']++;
+            $alreadyCart->unit_weight++;
 
         }else{
             array_push($cart['products'], $product);

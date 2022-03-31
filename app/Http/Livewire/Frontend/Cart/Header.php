@@ -30,7 +30,8 @@ class Header extends Component
 
         $totalPrice = 0;
         foreach(Cart::get()['products'] as $value)
-        {
+        {   
+            $harga_awal = $value->price;
             $harga_set = $value->price * $value->discount / 100;
             $harga_diskon = $value->price*$value->unit_weight - $harga_set;
 
@@ -55,7 +56,7 @@ class Header extends Component
         // dd("Test");
         $totalPrice = 0;
         foreach(Cart::get()['products'] as $value)
-        {
+        {   $harga_awal = $value->price;
             $harga_set = $value->price * $value->discount / 100;
             $harga_diskon = $value->price*$value->unit_weight - $harga_set;
 

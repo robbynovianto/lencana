@@ -17,6 +17,7 @@
                                 @foreach($cart['products'] as $product)
 
                                 @php
+                                $harga_awal = $product->price;
                                 $harga_set = $product->price * $product->discount / 100;
                                 $harga_diskon = $product->price * $product->unit_weight - $harga_set;
                                 @endphp
@@ -34,16 +35,17 @@
                                             <tr>
                                                 <td style="padding: .20rem">PRICE</td>
                                                 <td style="padding: .20rem">:</td>
-                                                <td style="padding: .20rem">{{ money_id($harga_diskon) }}</td>
+                                                <td style="padding: .20rem">{{ money_id($harga_awal) }}</td>
                                             </tr>
                                             <tr>
                                                 <td style="padding: .20rem">QTY</td>
                                                 <td style="padding: .20rem">:</td>
-                                                <td style="padding: .20rem"><b>{{ $product->unit_weight }}
-                                                    <!-- button tambah kurang -->
-
-                                                
-                                                    {{ $product->unit }}</b></td>
+                                                <td style="padding: .20rem">
+                                                    <input type="number" min="1" value=" $product->unit_weight" style="width: 50px">
+                                                    {{ $product->unit }}
+                                                </td>
+                                                <!-- <td style="padding: .20rem"><b>{{ $product->unit_weight }}
+                                                    button tambah kurang {{ $product->unit }}</b></td> -->
                                             </tr>
                                         </table>
                                     </td>
@@ -59,7 +61,7 @@
 
                                 @php
                                 $totalPrice += $harga_diskon;
-                                $weight += $product->weight;
+                                $weight += $product->weight * $product->unit_weight;
                                 @endphp
 
                                 @endforeach
