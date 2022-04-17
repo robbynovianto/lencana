@@ -71,12 +71,9 @@
                                 {{ $product->discount }} %</span>
                         </div>
                         @endif
-
-</a>
-
-
+            </a>
                         <div class="price font-weight-bold mt-3" style="color: black;font-size:20px">
-                            {{ money_id($harga_diskon) }}</div>
+                            {{ money_id($harga_diskon * $product->unit_weight) }}</div>
                         <button wire:click="addToCart({{ $product->id }})" class="btn btn-primary btn-md mt-3 btn-block shadow-md">Beli</button>
                     </div>
                 </div>

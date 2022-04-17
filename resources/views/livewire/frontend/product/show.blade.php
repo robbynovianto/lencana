@@ -1,10 +1,3 @@
-<style>
-.responsive {
-  width: 100%;
-  max-width: 700px;
-  height: auto;
-}
-</style>
 
 <div style="margin-top: 120px">
     <div class="container-fluid mb-lg-5 mt-4">
@@ -14,7 +7,11 @@
                     <div class="card-body p-3">
                         <h6 class="font-weight-bold"><i class="fa fa-list-ul"></i> GAMBAR</h6>
                         <hr>
-                        <img src="{{ Storage::url('public/products/'.$product_image) }}" class="responsive">
+                        <img src="{{ Storage::url('public/products/'.$product_image) }}" class="responsive" style="
+                        width: 100%;
+                        max-width: 700px;
+                        height: auto;
+                        ">
                     </div>
                 </div>
             </div>
@@ -50,6 +47,17 @@
                                 </td>
                                 <td style="width: 1%">:</td>
                                 <td>
-                                    {{$kategori}}
+                                    <a href="/category/{{ $kategori }}" class="text-decoration-none text-blue font-weight-bold">{{$kategori}}
                                 </td>
                             </tr>
+                            <tr>
+                                <td style="width: 10%">
+                                    Diskripsi
+                                </td>
+                                <td style="width: 1%">:</td>
+                                <td>
+                                    {{$description}}
+                                </td>
+                            </tr>
+</table>
+                            <button wire:click="addToCart({{ $id2 }})" class="btn btn-primary btn-md mt-3 btn-block shadow-md">Beli</button>

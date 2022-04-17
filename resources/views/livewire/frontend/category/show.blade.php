@@ -23,6 +23,7 @@
             @endphp
 
             <div class="col-6 col-md-3 mb-4">
+            <a href="/product/{{ $product->id }}" class="text-decoration-none text-dark">
                 <div class="card h-100 border-0 shadow rounded-md">
                     <div class="card-img">
                         <img src="{{ Storage::url('public/products/'.$product->image) }}" class="w-100 rounded-t-md"
@@ -40,7 +41,7 @@
                                 {{ $product->discount }} %</span>
                         </div>
                         @endif
-
+            </a>
                         <div class="price font-weight-bold mt-3" style="color: black;font-size:20px">
                             {{ money_id($harga_diskon) }}</div>
                         <button wire:click="addToCart({{ $product->id }})" class="btn btn-primary btn-md mt-3 btn-block shadow-md">Beli</button>

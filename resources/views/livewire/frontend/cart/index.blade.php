@@ -35,17 +35,14 @@
                                             <tr>
                                                 <td style="padding: .20rem">PRICE</td>
                                                 <td style="padding: .20rem">:</td>
-                                                <td style="padding: .20rem">{{ money_id($harga_awal) }}</td>
+                                                <td style="padding: .20rem">{{ money_id($harga_awal) }} / pcs</td>
                                             </tr>
                                             <tr>
                                                 <td style="padding: .20rem">QTY</td>
                                                 <td style="padding: .20rem">:</td>
-                                                <td style="padding: .20rem">
-                                                    <input type="number" min="1" value=" $product->unit_weight" style="width: 50px">
-                                                    {{ $product->unit }}
-                                                </td>
-                                                <!-- <td style="padding: .20rem"><b>{{ $product->unit_weight }}
-                                                    button tambah kurang {{ $product->unit }}</b></td> -->
+
+                                                <td style="padding: .20rem"><b>{{ $product->unit_weight }}
+                                                    {{ $product->unit }}</b></td>
                                             </tr>
                                         </table>
                                     </td>

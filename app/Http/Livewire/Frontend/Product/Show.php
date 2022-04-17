@@ -22,6 +22,8 @@ class Show extends Component
 
     public function addToCart(int $productId)
     {
+
+            
         Cart::add(Product::where('id', $productId)->first());
         $this->emit('addToCart');
         //alert message
@@ -35,11 +37,12 @@ class Show extends Component
         $products = Product::where('id', $this->segment)->first();
 
         return view('livewire.frontend.product.show', [
-            'products'         => $products,
+            'products'  => $products,
+            'id2'               => $products->id,
             'product_image'    => $products->image,
             'product_title'    => $products->title,
             'unit'             => $products->unit,
-            'kategori'         => $products->category_id,
+            'kategori'         => $products->category->name,
             'jumlah'           => $products->unit_weight,
             'weight'           => $products->weight,
             'price'            => $products->price,

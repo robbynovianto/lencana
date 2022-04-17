@@ -34,7 +34,7 @@ class Cart
         // dd($cart);
         if($alreadyCart){ 
             
-            $alreadyCart->unit_weight++;
+            $alreadyCart->unit_weight+=$product->unit_weight;
 
         }else{
             array_push($cart['products'], $product);
