@@ -1,39 +1,44 @@
-version: '3.7'
+version: "3.7"
 
 services:
   #Laravel App
   app:
+    container_name: lencana
     build:
       context: .
       dockerfile: Dockerfile
     image: lencana-apps
-    container_name: app
     restart: unless-stopped
     tty: true
     environment:
       SERVICE_NAME: app
       SERVICE_TAGS: dev
-    working_dir: /var/www/html
+    working_dir: /var/www/laravel_docker
+    ports:
+      - "8080:80"
     volumes:
-      - ./:/var/www/html
+      - ./:/var/www/laravel_docker
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+      - ./docker/apache/default.conf:/etc/apache2/sites-enabled/000-default.conf
+    depends_on:
+      - db
     networks:
       - mynet
 
   #Nginx Service
-  nginx:
-    image: nginx:alpine
-    container_name: nginx
-    restart: unless-stopped
-    tty: true
-    ports:
-      - "5555:80"
-      - "443:443"
-    volumes:
-      - ./:/var/www/html
-      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
-    networks:
-      - mynet
+  # nginx:
+  #   image: nginx:alpine
+  #   container_name: nginx
+  #   restart: unless-stopped
+  #   tty: true
+  #   ports:
+  #     - "5555:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./:/var/www/html
+  #     - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+  #   networks:
+  #     - mynet
 
   # PHMyAdmin
   phpmyadmin:
@@ -64,7 +69,7 @@ services:
       MYSQL_USER: ${DB_USERNAME}
       MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_ROOT_PASSWORD: rootpasswordmysql
-#    command: --init-file /data/application/init.sql
+    #    command: --init-file /data/application/init.sql
     volumes:
       - ./docker/mysql:/var/lib/mysql
       - ./db_lencana.sql:/data/application/init.sql

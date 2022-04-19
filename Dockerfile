@@ -1,29 +1,20 @@
-FROM php:7.4-fpm
+FROM php:8.0-apache
 
-COPY composer.lock composer.json /var/www/html/
+RUN apt update \
+        && apt install -y \
+            g++ \
+            libicu-dev \
+            libpq-dev \
+            libzip-dev \
+            zip \
+            zlib1g-dev \
+        && docker-php-ext-install \
+            intl \
+            opcache \
+            pdo \
+            pdo_pgsql \
+            pgsql \
 
-WORKDIR /var/www/html
-
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    git \
-    curl \
-    libpng-dev \
-    libonig-dev \
-    libxml2-dev \
-    zip \
-    unzip
-
-RUN docker-php-ext-install pdo pdo_mysql
-RUN docker-php-ext-enable pdo_mysql
+WORKDIR /var/www/laravel_docker
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-RUN usermod -u 1000 www-data
-
-COPY --chown=www-data:www-data . /var/www/html
-
-USER www-data
-
-EXPOSE 9000
-CMD ["php-fpm"]
