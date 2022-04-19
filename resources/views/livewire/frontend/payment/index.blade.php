@@ -43,7 +43,7 @@
                 <div class="col-md-4 mt-3 text-center">
                     <div class="card h-100 border-0 rounded-lg shadow">
                         <div class="card-body">
-                            <img src="{{ asset('images/payment-bni.png') }}" style="width: 150px">
+                            <img src="{{ asset('images/payment-bni.png') }}" style="width: 150px; padding : 11px">
                             <hr>
                             <h6>ROBBY NOVIANTO</h6>
                             <p></p>
@@ -67,11 +67,11 @@
                 <div class="col-md-4 mt-3 text-center">
                     <div class="card h-100 border-0 rounded-lg shadow">
                         <div class="card-body">
-                            <img src="{{ asset('images/payment-dana.png') }}" style="width: 150px">
+                            <img src="{{ asset('images/bca.png') }}" style="width: 150px; padding: 17px">
                             <hr>
                             <h6>ROBBY NOVIANTO</h6>
                             <p></p>
-                            <h6 class="font-weight-bold">087730799869</h6>
+                            <h6 class="font-weight-bold">0310701408</h6>
                         </div>
                     </div>
                 </div>
@@ -181,7 +181,7 @@
                                         <option value="OVO - 087730799869 - AN. ROBBY NOVIANTO">
                                             OVO - 087730799869 | AN. ROBBY NOVIANTO</option>
                                         <option value="DANA - 087730799869 - AN. ROBBY NOVIANTO">
-                                            DANA - 087730799869 | AN. ROBBY NOVIANTO</option>
+                                            BCA - 0310701408 | AN. ROBBY NOVIANTO</option>
                                     </select>
                                     @error('bank_transfer_to')
                                     <div class="invalid-feedback" style="display: block">

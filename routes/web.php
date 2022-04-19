@@ -42,6 +42,10 @@ Route::livewire('/customer/login', 'customer.auth.login')
 Route::livewire('/category/{slug}', 'frontend.category.show')
 ->layout('layouts.frontend')->name('frontend.category.show');
 
+//detail category
+Route::livewire('/product/{id}', 'frontend.product.show')
+->layout('layouts.frontend')->name('frontend.product.show');
+
 //search
 Route::livewire('/search', 'frontend.search.index')
 ->layout('layouts.frontend')->name('frontend.search.index');

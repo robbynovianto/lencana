@@ -47,11 +47,12 @@
             @foreach ($products as $product)
 
             @php
-            $harga_set = $product->price * $product->discount / 100;
-            $harga_diskon = $product->price - $harga_set;
+            $harga_set = $product->price * $product->unit_weight * $product->discount / 100;
+            $harga_diskon = $product->price * $product->unit_weight - $harga_set;
             @endphp
 
             <div class="col-6 col-md-3 mb-4">
+            <a href="/product/{{ $product->id }}" class="text-decoration-none text-dark">
                 <div class="card h-100 border-0 shadow rounded-md">
                     <div class="card-img">
                         <img src="{{ Storage::url('public/products/'.$product->image) }}" class="w-100 rounded-t-md"
@@ -65,11 +66,12 @@
 
 
                         @if ($product->discount > 0)
-                        <div class="discount mt-2" style="color: #999"><s>{{ money_id($product->price) }}</s> <span
+                        <div class="discount mt-2" style="color: #999"><s>{{ money_id($product->price * $product->unit_weight) }}</s> <span
                                 style="background-color: #F69C07" class="badge badge-pill badge-warning text-white">Save
                                 {{ $product->discount }} %</span>
                         </div>
                         @endif
+                        </a>
 
 
                         <div class="price font-weight-bold mt-3" style="color: black;font-size:20px">
@@ -82,7 +84,7 @@
         </div>
         <div class="row justify-content-center mt-5">
             @if($products->hasMorePages())
-                <button wire:click="loadMore()" class="btn btn-dark btn-lg shadow-md">Load More</button>
+                <button wire:click="loadMore()" class="btn btn-primary btn-lg shadow-md">Load More</button>
             @endif
         </div>
     </div>

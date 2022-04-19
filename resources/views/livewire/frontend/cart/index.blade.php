@@ -17,8 +17,8 @@
                                 @foreach($cart['products'] as $product)
 
                                 @php
-                                $harga_set = $product->price * $product->discount / 100;
-                                $harga_diskon = $product->price - $harga_set;
+                                $harga_set = $product->price * $product->unit_weight * $product->discount / 100;
+                                $harga_diskon = $product->price * $product->unit_weight - $harga_set;
                                 @endphp
 
                                 <tr style="background: #edf2f7;">
@@ -59,7 +59,7 @@
 
                                 @php
                                 $totalPrice += $harga_diskon;
-                                $weight += $product->weight;
+                                $weight += $product->weight * $product->unit_weight;
                                 @endphp
 
                                 @endforeach
