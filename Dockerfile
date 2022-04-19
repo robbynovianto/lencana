@@ -1,19 +1,9 @@
 FROM php:8.0-apache
 
-RUN apt update \
-        && apt install -y \
-            g++ \
-            libicu-dev \
-            libpq-dev \
-            libzip-dev \
-            zip \
-            zlib1g-dev \
-        && docker-php-ext-install \
-            intl \
-            opcache \
-            pdo \
-            pdo_pgsql \
-            pgsql \
+RUN apt update && apt install -y g++ libicu-dev libpq-dev libzip-dev zip zlib1g-dev 
+
+RUN docker-php-ext-install pdo pdo_mysql
+RUN docker-php-ext-enable pdo_mysql
 
 WORKDIR /var/www/laravel_docker
 
