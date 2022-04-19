@@ -46,7 +46,7 @@ class Show extends Component
             'jumlah'           => $products->unit_weight,
             'weight'           => $products->weight,
             'price'            => $products->price,
-            'description'      => $products->description
+            'description'      => htmlspecialchars_decode($products->content)
 
 
         ]);

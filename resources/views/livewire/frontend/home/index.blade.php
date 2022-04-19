@@ -66,7 +66,7 @@
 
 
                         @if ($product->discount > 0)
-                        <div class="discount mt-2" style="color: #999"><s>{{ money_id($product->price) }}</s> <span
+                        <div class="discount mt-2" style="color: #999"><s>{{ money_id($product->price * $product->unit_weight) }}</s> <span
                                 style="background-color: #F69C07" class="badge badge-pill badge-warning text-white">Save
                                 {{ $product->discount }} %</span>
                         </div>

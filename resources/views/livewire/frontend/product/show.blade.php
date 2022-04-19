@@ -23,6 +23,15 @@
                         <hr>
                         <h1 class="font-weight-bold">{{ $product_title}}</h1>
                         <table class="table table-borderless">
+                        <tr>
+                                <td style="width: 10%">
+                                    Harga
+                                </td>
+                                <td style="width: 1%">:</td>
+                                <td>
+                                    {{$price}} / pcs
+                                </td>
+                            </tr>
                             <tr>
                                 <td style="width: 10%">
                                     Jumlah
@@ -56,7 +65,7 @@
                                 </td>
                                 <td style="width: 1%">:</td>
                                 <td>
-                                    {{$description}}
+                                    {!!$description!!}
                                 </td>
                             </tr>
 </table>

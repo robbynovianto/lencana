@@ -140,8 +140,8 @@ class ApiController extends Controller
         foreach (Cart::get()['products'] as $cart) {
 
             $harga_awal = $value->price;
-            $harga_set = $cart->price * $cart->discount / 100;
-            $harga_diskon = $cart->price - $harga_set;
+            $harga_set = $cart->price * $cart->unit_weight * $cart->discount / 100;
+            $harga_diskon = $cart->price *$cart->unit_weight - $harga_set;
 
             $data_invoice->order()->create([
                 'invoice'       => $invoice,
