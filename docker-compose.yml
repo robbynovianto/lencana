@@ -3,42 +3,35 @@ version: "3.7"
 services:
   #Laravel App
   app:
-    container_name: lencana
+    container_name: lencana-app
     build:
       context: .
       dockerfile: Dockerfile
-    image: lencana-apps
+    image: lencana
     restart: unless-stopped
     tty: true
-    environment:
-      SERVICE_NAME: app
-      SERVICE_TAGS: dev
-    working_dir: /var/www/laravel_docker
-    ports:
-      - "8080:80"
+    working_dir: /var/www
     volumes:
-      - ./:/var/www/laravel_docker
+      - ./:/var/www
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
-      - ./docker/apache/default.conf:/etc/apache2/sites-enabled/000-default.conf
     depends_on:
       - db
     networks:
       - mynet
 
   #Nginx Service
-  # nginx:
-  #   image: nginx:alpine
-  #   container_name: nginx
-  #   restart: unless-stopped
-  #   tty: true
-  #   ports:
-  #     - "5555:80"
-  #     - "443:443"
-  #   volumes:
-  #     - ./:/var/www/html
-  #     - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
-  #   networks:
-  #     - mynet
+  nginx:
+    image: nginx:1.17-alpine
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - "5555:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - mynet
 
   # PHMyAdmin
   phpmyadmin:
@@ -80,7 +73,3 @@ services:
 networks:
   mynet:
     driver: bridge
-#Volumes
-volumes:
-  mysqldata:
-    driver: local
