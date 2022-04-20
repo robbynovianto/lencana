@@ -57,8 +57,6 @@ services:
     container_name: db
     restart: unless-stopped
     tty: true
-    ports:
-      - "3400:3306"
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_USER: ${DB_USERNAME}
